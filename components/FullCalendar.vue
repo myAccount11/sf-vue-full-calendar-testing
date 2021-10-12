@@ -144,38 +144,38 @@
         },
 
         mounted() {
-            const cal = document.querySelector(this.$el),
+            const cal = this.$el,
                 self = this
 
             this.$on('remove-event', (event) => {
                 if(event && event.hasOwnProperty('id')){
-                    document.querySelector(this.$el).fullCalendar('removeEvents', event.id);
+                    this.$el.fullCalendar('removeEvents', event.id);
                 }else{
-                    document.querySelector(this.$el).fullCalendar('removeEvents', event);
+                    this.$el.fullCalendar('removeEvents', event);
                 }
             })
 
             this.$on('rerender-events', () => {
-                document.querySelector(this.$el).fullCalendar('rerenderEvents')
+                this.$el.fullCalendar('rerenderEvents')
             })
 
             this.$on('refetch-events', () => {
-                document.querySelector(this.$el).fullCalendar('refetchEvents')
+                this.$el.fullCalendar('refetchEvents')
             })
 
             this.$on('render-event', (event) => {
-                document.querySelector(this.$el).fullCalendar('renderEvent', event)
+                this.$el.fullCalendar('renderEvent', event)
             })
 
             this.$on('reload-events', () => {
-                document.querySelector(this.$el).fullCalendar('removeEvents')
-                document.querySelector(this.$el).fullCalendar('addEventSource', this.events)
+                this.$el.fullCalendar('removeEvents')
+                this.$el.fullCalendar('addEventSource', this.events)
             })
 
             this.$on('rebuild-sources', () => {
-                document.querySelector(this.$el).fullCalendar('removeEventSources')
+                this.$el.fullCalendar('removeEventSources')
                 this.eventSources.map(event => {
-                    document.querySelector(this.$el).fullCalendar('addEventSource', event)
+                    this.$el.fullCalendar('addEventSource', event)
                 })
             })
 
@@ -184,7 +184,7 @@
 
         methods: {
             fireMethod(...options) {
-                return document.querySelector(this.$el).fullCalendar(...options)
+                return this.$el.fullCalendar(...options)
             },
         },
 
@@ -192,8 +192,8 @@
             events: {
                 deep: true,
                 handler(val) {
-                    document.querySelector(this.$el).fullCalendar('removeEvents')
-                    document.querySelector(this.$el).fullCalendar('addEventSource', this.events)
+                    this.$el.fullCalendar('removeEvents')
+                    this.$el.fullCalendar('addEventSource', this.events)
                 },
             },
             eventSources: {
