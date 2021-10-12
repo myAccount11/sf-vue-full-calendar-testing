@@ -38,7 +38,7 @@
   "bundleDependencies": false,
   "dependencies": {
     "babel-plugin-transform-runtime": "^6.23.0",
-    "fullcalendar": "5.9.0",
+    "fullcalendar": "3.10.1",
     "jquery": "3.4.1",
     "lodash.defaultsdeep": "^4.6.0"
   },
